@@ -1,5 +1,9 @@
 const bird = document.getElementById("bird");
 const gameContainer = document.getElementById("game-container");
+let score = 0;
+let highScore = localStorage.getItem("flappyHighScore") || 0;
+document.getElementById("high-score").textContent = highScore;
+
 let birdTop = 250;
 let gravity = 3; // stronger gravity
 let isGameOver = false;
