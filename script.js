@@ -5,7 +5,7 @@ let highScore = localStorage.getItem("flappyHighScore") || 0;
 document.getElementById("high-score").textContent = highScore;
 
 let birdTop = 250;
-let gravity = 3; // stronger gravity
+let gravity = 5; // stronger gravity
 let isGameOver = false;
 let pipeInterval;
 let fallInterval;
