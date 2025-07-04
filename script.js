@@ -35,7 +35,7 @@ function applyGravity() {
 
 function jump() {
   if (isGameOver) return;
-  birdTop -= 35; // smaller jump
+  birdTop -= 50; // smaller jump
   if (birdTop < 0) birdTop = 0;
   bird.style.top = birdTop + "px";
 }
