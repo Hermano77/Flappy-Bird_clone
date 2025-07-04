@@ -52,7 +52,7 @@ document.addEventListener("keydown", function (e) {
 
 function createPipe() {
   const pipeTopHeight = Math.floor(Math.random() * 200) + 50;
-  const pipeBottomHeight = 600 - pipeTopHeight - 150;
+  const pipeBottomHeight = Math.max(50, 600 - pipeTopHeight - 150);
 
   const pipeTop = document.createElement("div");
   pipeTop.classList.add("pipe", "pipe-top");
