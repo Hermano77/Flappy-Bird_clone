@@ -31,3 +31,22 @@ body {
   top: 250px;
   left: 100px;
 }
+.pipe {
+  position: absolute;
+  width: 60px;
+  background-color: green;
+}
+
+.pipe-top {
+  height: 150px;
+  top: 0;
+}
+
+.pipe-bottom {
+  height: 200px;
+  bottom: 0;
+}
+
+#bird {
+  border: 2px solid black; /* <-- black border */
+}
