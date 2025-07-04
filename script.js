@@ -7,12 +7,15 @@ document.getElementById("high-score").textContent = highScore;
 let birdTop = 250;
 let velocity = 0;
 let gravity = 0.25;       // gravity acceleration per frame
-let jumpStrength = -4.6;  // upward force when jumping
+let jumpStrength = -6;  // upward force when jumping
 let isGameOver = false;
 let pipeInterval;
 let fallInterval;
 
 function startGame() {
+  if (fallInterval) clearInterval(fallInterval);
+if (pipeInterval) clearInterval(pipeInterval);
+
   console.log("Game started. birdTop:", birdTop);
   birdTop = 250;
   velocity = 0;
