@@ -6,7 +6,7 @@ document.getElementById("high-score").textContent = highScore;
 
 let birdTop = 250;
 let velocity = 0;
-let gravity = 0.50;       // gravity acceleration per frame
+let gravity = 0.25;       // gravity acceleration per frame
 let jumpStrength = -4.6;  // upward force when jumping
 let isGameOver = false;
 let pipeInterval;
