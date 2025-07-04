@@ -15,6 +15,9 @@ function startGame() {
   isGameOver = false;
   bird.style.top = birdTop + "px";
   clearGameArea();
+  score = 0;
+document.getElementById("score").textContent = score;
+
   fallInterval = setInterval(applyGravity, 20);
   pipeInterval = setInterval(createPipe, 2000);
 }
@@ -73,6 +76,11 @@ function createPipe() {
     }
 
     pipeLeft -= 2;
+    if (pipeLeft === 100) {
+  score++;
+  document.getElementById("score").textContent = score;
+}
+
     pipeTop.style.left = pipeLeft + "px";
     pipeBottom.style.left = pipeLeft + "px";
 
@@ -104,6 +112,12 @@ function checkCollision() {
 
 function gameOver() {
   isGameOver = true;
+  if (score > highScore) {
+  highScore = score;
+  localStorage.setItem("flappyHighScore", highScore);
+  document.getElementById("high-score").textContent = highScore;
+}
+
   clearInterval(fallInterval);
   clearInterval(pipeInterval);
   alert("Game Over! Press Space to restart.");
