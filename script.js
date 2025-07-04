@@ -13,17 +13,24 @@ let pipeInterval;
 let fallInterval;
 
 function startGame() {
+  console.log("Game started. birdTop:", birdTop);
   birdTop = 250;
   velocity = 0;
   isGameOver = false;
+
   bird.style.top = birdTop + "px";
   clearGameArea();
-  score = 0;
-document.getElementById("score").textContent = score;
 
-  fallInterval = setInterval(applyGravity, 16);
-  pipeInterval = setInterval(createPipe, 2000);
+  score = 0;
+  document.getElementById("score").textContent = score;
+
+  clearInterval(fallInterval);  // ✅ clear old gravity
+  clearInterval(pipeInterval);  // ✅ clear old pipes
+
+  fallInterval = setInterval(applyGravity, 16);  // 60 fps gravity
+  pipeInterval = setInterval(createPipe, 2000);  // spawn pipes
 }
+
 
 function applyGravity() {
   velocity += gravity;
