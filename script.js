@@ -39,7 +39,10 @@ function applyGravity() {
 
 function jump() {
   if (isGameOver) return;
+  console.log("Spacebar pressed, jumping!"); // ✅ this should show up
   velocity = jumpStrength; // set upward velocity
+  console.log("velocity after jump:", velocity);
+
 }
 
 document.addEventListener("keydown", function (e) {
@@ -113,6 +116,7 @@ function checkCollision() {
 }
 
 function gameOver() {
+  console.log("GAME OVER triggered");
   isGameOver = true;
   if (score > highScore) {
   highScore = score;
