@@ -5,24 +5,28 @@ let highScore = localStorage.getItem("flappyHighScore") || 0;
 document.getElementById("high-score").textContent = highScore;
 
 let birdTop = 250;
-let gravity = 3; // stronger gravity
+let velocity = 0;
+let gravity = 0.25;       // gravity acceleration per frame
+let jumpStrength = -4.6;  // upward force when jumping
 let isGameOver = false;
 let pipeInterval;
 let fallInterval;
 
 function startGame() {
   birdTop = 250;
+  velocity = 0;
   isGameOver = false;
   bird.style.top = birdTop + "px";
   clearGameArea();
   score = 0;
 document.getElementById("score").textContent = score;
 
-  fallInterval = setInterval(applyGravity, 20);
+  fallInterval = setInterval(applyGravity, 16);
   pipeInterval = setInterval(createPipe, 2000);
 }
 
 function applyGravity() {
+  velocity += gravity;
   birdTop += gravity;
   bird.style.top = birdTop + "px";
 
@@ -35,9 +39,7 @@ function applyGravity() {
 
 function jump() {
   if (isGameOver) return;
-  birdTop -= 50; // smaller jump
-  if (birdTop < 0) birdTop = 0;
-  bird.style.top = birdTop + "px";
+  velocity = jumpStrength; // set upward velocity
 }
 
 document.addEventListener("keydown", function (e) {
