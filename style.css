@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #70c5ce;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+#game-container {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  background-color: #fff;
+  overflow: hidden;
+  border: 2px solid #000;
+}
+
+#bird {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: yellow;
+  border-radius: 50%;
+  top: 250px;
+  left: 100px;
+}
